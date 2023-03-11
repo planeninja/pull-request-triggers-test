@@ -1,0 +1,18 @@
+on:
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  pull_request_trigger_read:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo 'Triggered by a `pull_request` trigger.'
+          echo "The job_id is: $GITHUB_JOB"   # reference the default environment variables
+          echo "The id of this action is: $GITHUB_ACTION"   # reference the default environment variables
+          echo "The run id is: $GITHUB_RUN_ID"
+          echo "The GitHub Actor's username is: $GITHUB_ACTOR"
+          echo "GitHub SHA: $GITHUB_SHA"
+          echo "GitHub ref: $GITHUB_REF"
+          echo 'GitHub context: ${{ toJSON(github) }}'
